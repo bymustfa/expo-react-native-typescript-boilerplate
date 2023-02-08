@@ -16,3 +16,17 @@
 - `styled-system` - https://styled-system.com/
 - `@expo/vector-icons` - https://docs.expo.dev/versions/latest/sdk/vector-icons/
 
+### Components
+
+1. Button
+   * DefaultButton
+2. Input
+3. Box
+4. Text
+5. Nvigation 
+   1. Bottom Tabs 
+       * DefaultTab
+       * DarkTab
+       * PlusTab
+   2. HeaderBar
+       * DefaultHeader 
