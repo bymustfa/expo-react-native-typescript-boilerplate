@@ -1,13 +1,13 @@
 import React, { FC, useState } from "react";
-import { ScrollView, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import { Box, Input } from "components/base";
+import { Box, Input, ScrollView } from "components/base";
 
 const InputsScreen: FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   return (
-    <Box as={ScrollView} p={2} flex={1}>
+    <ScrollView>
       <Input label="Demo Label" />
 
       <Input placeholder="Demo placeholder" />
@@ -82,7 +82,7 @@ const InputsScreen: FC = () => {
         placeholder="Demo placeholder"
         rightIcon={<Feather name="eye" size={22} />}
       />
-    </Box>
+    </ScrollView>
   );
 };
 

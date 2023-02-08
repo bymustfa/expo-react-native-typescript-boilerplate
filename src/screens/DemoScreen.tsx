@@ -1,13 +1,13 @@
 import React, { FC } from "react";
-import { Box, Text } from "../components/base";
+import { Box, Text, ScrollView } from "../components/base";
 
 const DemoScreen: FC = () => {
   return (
-    <Box p={2}>
+    <ScrollView>
       <Box>
         <Text color="red">Demo Screen</Text>
       </Box>
-    </Box>
+    </ScrollView>
   );
 };
 

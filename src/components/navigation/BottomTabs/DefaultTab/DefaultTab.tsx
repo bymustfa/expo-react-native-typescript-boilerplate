@@ -52,6 +52,8 @@ const DefaultTab: FC<BottomTabBarProps> = ({ state }) => {
       backgroundColor={colors.white}
       height={75}
       pb={1}
+      position="absolute"
+      bottom={0}
     >
       {BottomTabRoutes.map((route, index) => {
         const active = activeRoute.name === route.screen;

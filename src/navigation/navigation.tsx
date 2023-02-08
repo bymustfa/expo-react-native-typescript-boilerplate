@@ -12,8 +12,8 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 // Screens
 import HomeScreen from "screens/HomeScreen";
-import DemoScreen from "screens/DemoScreen";
 import InputsScreen from "screens/InputsScreen";
+import DemoScreen from "screens/DemoScreen";
 
 const BottomTabNavigator = () => (
   <BottomTab.Navigator
@@ -28,6 +28,21 @@ const BottomTabNavigator = () => (
           {...props}
         />
       ),
+      tabBarStyle: {
+        backgroundColor: "transparent",
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        elevation: 0,
+        borderTopWidth: 0,
+        height: 75,
+      },
+      tabBarShowLabel: false,
+      tabBarActiveTintColor: "black",
+      tabBarInactiveTintColor: "black",
+      tabBarActiveBackgroundColor: "transparent",
+      tabBarInactiveBackgroundColor: "transparent",
     }}
   >
     <BottomTab.Screen name="HomeScreen" component={HomeScreen} />
