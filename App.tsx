@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import "react-native-gesture-handler";
 
 import Navigation from "navigation/navigation";
 

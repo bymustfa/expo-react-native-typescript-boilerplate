@@ -1,11 +1,14 @@
 import React, { FC, useState } from "react";
 import { IInputProps } from "./Input.type";
+
 import TextInput from "../Elements/TextInput";
 import Box from "../Elements/Box";
-import { theme } from "../../../utils/theme/theme";
 import Text from "../Elements/Text";
 
+import { theme } from "utils/theme/theme";
+
 const { colors, borderRadius } = theme;
+
 const Input: FC<IInputProps> = ({
   leftIcon,
   rightIcon,

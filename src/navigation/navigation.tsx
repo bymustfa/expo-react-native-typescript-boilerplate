@@ -1,14 +1,22 @@
 import React, { FC } from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { RootStackParamList, RootTabParamList } from "./navigation.types";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+
+import {
+  DrawerParamList,
+  RootStackParamList,
+  RootTabParamList,
+} from "./navigation.types";
 
 import { DarkTab, DefaultTab, PlusTab } from "components/navigation/BottomTabs";
-import { DefaultHeaderBar } from "../components/navigation/HeaderBar";
+import { DefaultHeaderBar } from "components/navigation/HeaderBar";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
+const Drawer = createDrawerNavigator<DrawerParamList>();
 
 // Screens
 import HomeScreen from "screens/HomeScreen";
@@ -18,7 +26,7 @@ import DemoScreen from "screens/DemoScreen";
 const BottomTabNavigator = () => (
   <BottomTab.Navigator
     initialRouteName="HomeScreen"
-    tabBar={(props) => <DefaultTab {...props} />}
+    tabBar={(props) => <DarkTab {...props} />}
     screenOptions={{
       header: (props) => (
         <DefaultHeaderBar
@@ -61,6 +69,12 @@ const Navigation: FC = () => (
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
+
+    {/*<Drawer.Navigator>*/}
+    {/*  <Drawer.Screen name="HomeScreen" component={HomeScreen} />*/}
+    {/*  <Drawer.Screen name="InputsScreen" component={InputsScreen} />*/}
+    {/*  <Drawer.Screen name="DemoScreen1" component={DemoScreen} />*/}
+    {/*</Drawer.Navigator>*/}
   </NavigationContainer>
 );
 

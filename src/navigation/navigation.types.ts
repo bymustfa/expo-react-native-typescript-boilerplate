@@ -7,8 +7,16 @@ export type RootTabParamList = {
   DemoScreen2: undefined;
 };
 
+export type DrawerParamList = {
+  HomeScreen: undefined;
+  InputsScreen: undefined;
+  DemoScreen1: undefined;
+  DemoScreen2: undefined;
+};
+
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList>;
+  Drawer: NavigatorScreenParams<DrawerParamList>;
 };
 
 declare global {

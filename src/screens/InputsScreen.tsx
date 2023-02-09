@@ -2,6 +2,7 @@ import React, { FC, useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Box, Input, ScrollView } from "components/base";
+import { theme } from "../utils/theme/theme";
 
 const InputsScreen: FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -36,13 +37,23 @@ const InputsScreen: FC = () => {
         numberOfLines={3}
         placeholder="Demo placeholder"
         leftIcon={
-          <Box height="100%" alignItems="center" justifyContent="flex-start">
-            <Feather name="eye" size={22} />
+          <Box
+            height="100%"
+            alignItems="center"
+            justifyContent="flex-start"
+            pt={2}
+          >
+            <Feather color={theme.colors.primary} name="edit" size={22} />
           </Box>
         }
         rightIcon={
-          <Box height="100%" alignItems="center" justifyContent="flex-end">
-            <Feather name="eye" size={22} />
+          <Box
+            height="100%"
+            alignItems="center"
+            justifyContent="flex-end"
+            pb={2}
+          >
+            <Feather color={theme.colors.danger} name="trash-2" size={22} />
           </Box>
         }
       />

@@ -1,13 +1,17 @@
 import React, { FC, useEffect, useMemo, useRef, useState } from "react";
 import { Animated } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
-import { BottomTabBarProps } from "@react-navigation/bottom-tabs/lib/typescript/src/types";
-import { RootTabParamList } from "navigation/navigation.types";
+import { Feather } from "@expo/vector-icons";
+
+import type { BottomTabBarProps } from "@react-navigation/bottom-tabs/lib/typescript/src/types";
+import type { RootTabParamList } from "navigation/navigation.types";
+import type { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+
 import { BottomTabRoutes } from "navigation/BottomTabRoutes";
+import DarkTabButton from "./DarkTabButton";
+
 import { Box, Text } from "components/base";
 import { theme } from "utils/theme/theme";
-import DarkTabButton from "./DarkTabButton";
 
 const { colors } = theme;
 
@@ -23,7 +27,10 @@ const DarkTab: FC<BottomTabBarProps> = ({ state }) => {
 
   const activeIndex = useMemo(() => state.index, [state.index]);
 
-  const activeRoute = state.routes[state.index];
+  const activeRoute = useMemo(
+    () => state.routes[activeIndex],
+    [state.routes, activeIndex]
+  );
 
   useEffect(() => {
     if (tabBarRef.current) {
@@ -62,7 +69,7 @@ const DarkTab: FC<BottomTabBarProps> = ({ state }) => {
         alignItems="center"
         justifyContent="space-around"
         width="90%"
-        height={60}
+        height={65}
         position="relative"
       >
         {BottomTabRoutes.map((route, index) => {
@@ -76,7 +83,13 @@ const DarkTab: FC<BottomTabBarProps> = ({ state }) => {
               onPress={() => handleNavigate(route.screen)}
               width={[1 / BottomTabRoutes.length]}
             >
+              <Feather
+                name={route.iconName}
+                size={20}
+                color={active ? colors.white : colors.light}
+              />
               <Text
+                mt={1}
                 fontWeight={active ? "bold" : "normal"}
                 color={active ? colors.white : colors.light}
               >
@@ -103,7 +116,7 @@ const DarkTab: FC<BottomTabBarProps> = ({ state }) => {
           height={3}
           backgroundColor={colors.white}
           position="absolute"
-          bottom={2}
+          bottom={1}
           left={0}
           style={{
             transform: [

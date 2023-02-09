@@ -20,8 +20,12 @@ const DefaultTab: FC<BottomTabBarProps> = ({ state }) => {
   const tabBarRef = useRef(null);
   const [animation] = useState(new Animated.Value(0));
 
-  const activeRoute = state.routes[state.index];
   const activeIndex = useMemo(() => state.index, [state.index]);
+
+  const activeRoute = useMemo(
+    () => state.routes[activeIndex],
+    [state.routes, activeIndex]
+  );
 
   useEffect(() => {
     if (tabBarRef.current) {
