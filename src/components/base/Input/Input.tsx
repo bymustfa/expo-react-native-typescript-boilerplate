@@ -20,11 +20,12 @@ const Input: FC<IInputProps> = ({
   const inputWidth =
     leftIcon && rightIcon ? "80%" : leftIcon || rightIcon ? "90%" : "100%";
 
-  const multiline =
-    props.numberOfLines && props.numberOfLines > 1 ? true : false;
+  const multiline = !!(props.numberOfLines && props.numberOfLines > 1);
 
   const inputHeight =
     multiline && props.numberOfLines ? (props.numberOfLines * 45) / 2 : 45;
+
+  const disabled = props.editable === false;
 
   return (
     <Box mb={mb} width={width}>
@@ -66,6 +67,7 @@ const Input: FC<IInputProps> = ({
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
           multiline={multiline}
+          color={disabled ? colors.gray : colors.dark}
           {...props}
         />
 

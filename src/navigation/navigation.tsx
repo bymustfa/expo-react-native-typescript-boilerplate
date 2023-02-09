@@ -18,7 +18,7 @@ import DemoScreen from "screens/DemoScreen";
 const BottomTabNavigator = () => (
   <BottomTab.Navigator
     initialRouteName="HomeScreen"
-    tabBar={(props) => <PlusTab {...props} />}
+    tabBar={(props) => <DefaultTab {...props} />}
     screenOptions={{
       header: (props) => (
         <DefaultHeaderBar

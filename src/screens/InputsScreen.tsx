@@ -12,7 +12,12 @@ const InputsScreen: FC = () => {
 
       <Input placeholder="Demo placeholder" />
 
-      <Input label="Demo Label" placeholder="Demo placeholder" />
+      <Input
+        editable={false}
+        value="Aaaa"
+        label="Demo Label Disabled"
+        placeholder="Demo placeholder"
+      />
 
       <Input
         label="Default Value"
