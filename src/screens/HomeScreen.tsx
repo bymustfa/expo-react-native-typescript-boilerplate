@@ -1,42 +1,24 @@
-import React, { FC } from "react";
-import { Box, Button, Text, ScrollView } from "components/base";
+import React, { FC, useState } from "react";
+import { Box, Button, Text, ScrollView, Input } from "components/base";
+import QRCode from "react-native-qrcode-svg";
 import { Feather } from "@expo/vector-icons";
 
 const HomeScreen: FC = () => {
+  const [guid, setGuid] = useState<string>("");
+
+  const generateGuid = () => {
+    const guid = "1234567890";
+    setGuid(guid);
+  };
+
   return (
     <ScrollView>
-      <Box>
-        <Text color="red">Home Screen</Text>
-      </Box>
-
-      <Button
-        text="Demo"
-        mb={10}
-        size="xl"
-        leftIcon={<Feather name="menu" size={24} />}
-        rightIcon={<Feather name="menu" size={24} />}
-      />
-
-      <Button
-        mb={10}
-        size="xl"
-        leftIcon={<Feather color="white" name="menu" size={24} />}
-      />
-      <Button text="Demo" mb={10} size="lg" variant="secondary" />
-      <Button text="Demo" mb={10} variant="danger" />
-      <Button text="Demo" mb={10} variant="dark" />
-      <Button text="Demo" mb={10} size="sm" variant="success" />
-      <Button text="Demo" mb={10} variant="warning" />
-      <Button text="Demo" mb={10} variant="info" />
-      <Button text="Demo" mb={10} variant="light" />
-      <Button
-        text="Demo"
-        leftIcon={<Feather name="menu" size={24} />}
-        rightIcon={<Feather name="menu" size={24} />}
-        mb={10}
-        size="sm"
-        variant="link"
-      />
+      {guid.trim().length > 0 && <QRCode size={300} value={guid} />}
+      {guid.trim().length === 0 ? (
+        <Button text="Generate Code" onPress={generateGuid} />
+      ) : (
+        <></>
+      )}
     </ScrollView>
   );
 };

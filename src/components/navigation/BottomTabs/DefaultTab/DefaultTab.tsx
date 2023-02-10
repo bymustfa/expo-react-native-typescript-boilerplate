@@ -59,7 +59,7 @@ const DefaultTab: FC<BottomTabBarProps> = ({ state }) => {
       position="absolute"
       bottom={0}
     >
-      {BottomTabRoutes.map((route, index) => {
+      {BottomTabRoutes.filter((x) => x.show.bottomTab).map((route, index) => {
         const active = activeRoute.name === route.screen;
         return (
           <DefaultTabButton

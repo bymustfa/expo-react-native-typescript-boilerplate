@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState, useEffect, useCallback } from "react";
 import { TouchableOpacity, Image, Platform, StatusBar } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
@@ -6,7 +6,7 @@ import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
 
 import { theme } from "utils/theme/theme";
 import { BottomTabRoutes } from "navigation/BottomTabRoutes";
-import { Box, Text } from "components/base";
+import { Box, Input, Text } from "components/base";
 
 import type { RootTabParamList } from "navigation/navigation.types";
 import type { IDefaultHeaderBarProps } from "./DefaultHeaderBar.types";
@@ -26,8 +26,10 @@ const DefaultHeaderBar: FC<IDefaultHeaderBarProps> = ({
 }) => {
   const navigation = useNavigation<BottomTabNavigationProp<RootTabParamList>>();
   const route = useRoute();
-
   const findScreen = BottomTabRoutes.find((item) => item.screen === route.name);
+  const [searchMode, setSearchMode] = useState(false);
+
+  const [searchText, setSearchText] = useState<string>("");
 
   return (
     <Box
@@ -37,11 +39,43 @@ const DefaultHeaderBar: FC<IDefaultHeaderBarProps> = ({
       alignItems="center"
       justifyContent="space-between"
       backgroundColor={colors.white}
-      mb={10}
+      // mb={10}
     >
       <StatusBar
         barStyle={Platform.OS === "ios" ? "dark-content" : "light-content"}
       />
+
+      {rightComponentStatus === "search" && searchMode && (
+        <Box
+          position="absolute"
+          left={0}
+          top={0}
+          right={0}
+          bottom={0}
+          zIndex={2}
+          px={3}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Input
+            width="100%"
+            placeholder="Search..."
+            onChangeText={setSearchText}
+            value={searchText}
+            rightIcon={
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => {
+                  setSearchMode(false);
+                  setSearchText("");
+                }}
+              >
+                <Feather name="x" color={colors.gray} size={22} />
+              </TouchableOpacity>
+            }
+          />
+        </Box>
+      )}
 
       <Box>
         {leftComponent ? (
@@ -100,7 +134,7 @@ const DefaultHeaderBar: FC<IDefaultHeaderBarProps> = ({
             {rightComponentStatus === "search" && (
               <TouchableOpacity
                 activeOpacity={0.8}
-                onPress={() => console.log("Search")}
+                onPress={() => setSearchMode(true)}
               >
                 <Feather name="search" size={24} color="black" />
               </TouchableOpacity>

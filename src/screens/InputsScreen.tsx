@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, KeyboardAvoidingView } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Box, Input, ScrollView } from "components/base";
 import { theme } from "../utils/theme/theme";

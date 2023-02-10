@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useMemo, useRef, useState } from "react";
-import { Animated } from "react-native";
+import { Animated, Keyboard } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 
@@ -71,8 +71,9 @@ const DarkTab: FC<BottomTabBarProps> = ({ state }) => {
         width="90%"
         height={65}
         position="relative"
+        boxShadow="0px 5px 10px rgba(0, 0, 0, 0.4)"
       >
-        {BottomTabRoutes.map((route, index) => {
+        {BottomTabRoutes.filter((x) => x.show.bottomTab).map((route, index) => {
           const active = activeRoute.name === route.screen;
 
           return (
@@ -85,7 +86,7 @@ const DarkTab: FC<BottomTabBarProps> = ({ state }) => {
             >
               <Feather
                 name={route.iconName}
-                size={20}
+                size={18}
                 color={active ? colors.white : colors.light}
               />
               <Text

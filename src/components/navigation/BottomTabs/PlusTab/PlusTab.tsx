@@ -22,12 +22,19 @@ const PlusTab: FC<BottomTabBarProps> = ({ state }) => {
   const activeRoute = state.routes[state.index];
 
   const LEFTDATAS = useMemo(
-    () => BottomTabRoutes.slice(0, Math.floor(BottomTabRoutes.length / 2)),
+    () =>
+      BottomTabRoutes.filter((x) => x.show.bottomTab).slice(
+        0,
+        Math.floor(BottomTabRoutes.length / 2)
+      ),
     [BottomTabRoutes]
   );
 
   const RIGHTDATAS = useMemo(
-    () => BottomTabRoutes.slice(Math.floor(BottomTabRoutes.length / 2)),
+    () =>
+      BottomTabRoutes.filter((x) => x.show.bottomTab).slice(
+        Math.floor(BottomTabRoutes.length / 2)
+      ),
     [BottomTabRoutes]
   );
 

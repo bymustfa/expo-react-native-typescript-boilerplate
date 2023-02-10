@@ -1,6 +1,4 @@
-import { ReactNode } from "react";
 import { RootTabParamList } from "./navigation.types";
-import { IconProps } from "@expo/vector-icons/build/createIconSet";
 
 type IconName =
   | "link"
@@ -294,8 +292,10 @@ interface IBottomTabRoutes {
   id: number;
   name: string;
   screen: keyof RootTabParamList;
-
   iconName: IconName;
+  show: {
+    bottomTab: boolean;
+  };
 }
 
 export const BottomTabRoutes: IBottomTabRoutes[] = [
@@ -304,23 +304,35 @@ export const BottomTabRoutes: IBottomTabRoutes[] = [
     name: "Home",
     screen: "HomeScreen",
     iconName: "home",
+    show: {
+      bottomTab: true,
+    },
   },
   {
     id: 2,
     name: "Inputs",
     screen: "InputsScreen",
     iconName: "edit",
+    show: {
+      bottomTab: true,
+    },
   },
   {
     id: 3,
-    name: "Demo1",
-    screen: "DemoScreen1",
-    iconName: "plus",
+    name: "Buttons",
+    screen: "ButtonScreen",
+    iconName: "square",
+    show: {
+      bottomTab: true,
+    },
   },
   {
     id: 4,
     name: "Demo2",
     screen: "DemoScreen2",
     iconName: "plus",
+    show: {
+      bottomTab: true,
+    },
   },
 ];

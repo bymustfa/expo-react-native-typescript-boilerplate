@@ -1,16 +1,17 @@
 import { NavigatorScreenParams } from "@react-navigation/native";
+import ButtonScreen from "../screens/ButtonScreen";
 
 export type RootTabParamList = {
   HomeScreen: undefined;
   InputsScreen: undefined;
-  DemoScreen1: undefined;
+  ButtonScreen: undefined;
   DemoScreen2: undefined;
 };
 
 export type DrawerParamList = {
   HomeScreen: undefined;
   InputsScreen: undefined;
-  DemoScreen1: undefined;
+  ButtonScreen: undefined;
   DemoScreen2: undefined;
 };
 

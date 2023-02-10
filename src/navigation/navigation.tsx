@@ -3,24 +3,22 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import {
-  DrawerParamList,
-  RootStackParamList,
-  RootTabParamList,
-} from "./navigation.types";
+import { RootStackParamList, RootTabParamList } from "./navigation.types";
 
 import { DarkTab, DefaultTab, PlusTab } from "components/navigation/BottomTabs";
-import { DefaultHeaderBar } from "components/navigation/HeaderBar";
+import {
+  DefaultHeaderBar,
+  UserBasedHeaderbar,
+} from "components/navigation/HeaderBar";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
-const Drawer = createDrawerNavigator<DrawerParamList>();
 
 // Screens
 import HomeScreen from "screens/HomeScreen";
 import InputsScreen from "screens/InputsScreen";
+import ButtonScreen from "screens/ButtonScreen";
 import DemoScreen from "screens/DemoScreen";
 
 const BottomTabNavigator = () => (
@@ -29,6 +27,8 @@ const BottomTabNavigator = () => (
     tabBar={(props) => <DarkTab {...props} />}
     screenOptions={{
       header: (props) => (
+        // <UserBasedHeaderbar {...props} />
+
         <DefaultHeaderBar
           leftComponentStatus="back"
           rightComponentStatus="search"
@@ -55,7 +55,7 @@ const BottomTabNavigator = () => (
   >
     <BottomTab.Screen name="HomeScreen" component={HomeScreen} />
     <BottomTab.Screen name="InputsScreen" component={InputsScreen} />
-    <BottomTab.Screen name="DemoScreen1" component={DemoScreen} />
+    <BottomTab.Screen name="ButtonScreen" component={ButtonScreen} />
     <BottomTab.Screen name="DemoScreen2" component={DemoScreen} />
   </BottomTab.Navigator>
 );
@@ -69,12 +69,6 @@ const Navigation: FC = () => (
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
-
-    {/*<Drawer.Navigator>*/}
-    {/*  <Drawer.Screen name="HomeScreen" component={HomeScreen} />*/}
-    {/*  <Drawer.Screen name="InputsScreen" component={InputsScreen} />*/}
-    {/*  <Drawer.Screen name="DemoScreen1" component={DemoScreen} />*/}
-    {/*</Drawer.Navigator>*/}
   </NavigationContainer>
 );
 
