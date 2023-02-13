@@ -5,6 +5,7 @@ export { default as ScrollView } from "./Elements/ScrollView";
 
 // BUTTONS
 export { default as Button } from "./Button";
+export { default as ToggleButton } from "./Button/ToggleButton";
 
 // INPUTS
 export { default as Input } from "./Input/Input";

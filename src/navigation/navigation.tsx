@@ -19,6 +19,8 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 import HomeScreen from "screens/HomeScreen";
 import InputsScreen from "screens/InputsScreen";
 import ButtonScreen from "screens/ButtonScreen";
+import QRScreen from "screens/QRScreen";
+import SettingScreen from "screens/SettingScreen";
 import DemoScreen from "screens/DemoScreen";
 
 const BottomTabNavigator = () => (
@@ -56,6 +58,8 @@ const BottomTabNavigator = () => (
     <BottomTab.Screen name="HomeScreen" component={HomeScreen} />
     <BottomTab.Screen name="InputsScreen" component={InputsScreen} />
     <BottomTab.Screen name="ButtonScreen" component={ButtonScreen} />
+    <BottomTab.Screen name="SettingScreen" component={SettingScreen} />
+    <BottomTab.Screen name="QRScreen" component={QRScreen} />
     <BottomTab.Screen name="DemoScreen2" component={DemoScreen} />
   </BottomTab.Navigator>
 );

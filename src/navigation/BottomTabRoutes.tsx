@@ -328,9 +328,9 @@ export const BottomTabRoutes: IBottomTabRoutes[] = [
   },
   {
     id: 4,
-    name: "Demo2",
-    screen: "DemoScreen2",
-    iconName: "plus",
+    name: "Settings",
+    screen: "SettingScreen",
+    iconName: "settings",
     show: {
       bottomTab: true,
     },

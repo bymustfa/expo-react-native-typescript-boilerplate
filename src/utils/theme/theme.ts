@@ -7,7 +7,7 @@ const COLORS: IColors = {
   danger: "#FF3B3B",
   warning: "#E5B800",
   info: "#4D0099",
-  light: "#f8f9fa",
+  light: "#ececec",
   dark: "#1C1C28",
   link: "#007bff",
 

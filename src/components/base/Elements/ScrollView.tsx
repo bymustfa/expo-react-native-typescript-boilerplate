@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from "react";
 import { ScrollView as RNScrollView, ScrollViewProps } from "react-native";
 
-import Box from "./Box";
+import Box, { BoxProps } from "./Box";
 
-interface IScrollViewProps extends ScrollViewProps {
+interface IScrollViewProps extends ScrollViewProps, BoxProps {
   children: ReactNode;
 }
 
